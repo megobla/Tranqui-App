@@ -1,0 +1,39 @@
+{
+  "moods": [
+    {
+      "id": "estresada",
+      "label": "Estresada",
+      "title": "Suelta los hombros",
+      "text": "Inhala por la nariz y deja caer los hombros al exhalar. Repite tres veces.",
+      "image": "assets/img/tip-shoulders.jpg"
+    },
+    {
+      "id": "ansiosa",
+      "label": "Ansiosa",
+      "title": "Cuenta tu respiración",
+      "text": "Inhala contando hasta cuatro, exhala contando hasta seis. Repite cinco veces.",
+      "image": "assets/img/tip-shoulders.jpg"
+    },
+    {
+      "id": "agobiada",
+      "label": "Agobiada",
+      "title": "Haz una pausa de un minuto",
+      "text": "Cierra los ojos, apoya los pies en el suelo y respira sin apurarte. Un minuto es suficiente.",
+      "image": "assets/img/tip-shoulders.jpg"
+    },
+    {
+      "id": "inquieta",
+      "label": "Inquieta",
+      "title": "Relaja la mandíbula",
+      "text": "Afloja la mandíbula y deja los labios ligeramente separados mientras respiras despacio.",
+      "image": "assets/img/tip-shoulders.jpg"
+    },
+    {
+      "id": "no-puedo-dormir",
+      "label": "No puedo dormir",
+      "text": "Alarga la exhalación más que la inhalación: inhala en cuatro tiempos, exhala en ocho.",
+      "title": "Alarga tu exhalación",
+      "image": "assets/img/tip-shoulders.jpg"
+    }
+  ]
+}

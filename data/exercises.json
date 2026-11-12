@@ -1,0 +1,36 @@
+{
+  "featured": "pies-en-la-tierra",
+  "steps": [
+    { "number": 1, "text": "5 cosas que ves" },
+    { "number": 2, "text": "4 que puedes tocar" },
+    { "number": 3, "text": "3 que oyes" },
+    { "number": 4, "text": "2 que puedes oler" },
+    { "number": 5, "text": "1 que puedes saborear" }
+  ],
+  "items": [
+    {
+      "id": "pies-en-la-tierra",
+      "title": "Pies en la tierra",
+      "subtitle": "Vuelve al presente",
+      "image": "assets/img/exercise-detail-feet.jpg"
+    },
+    {
+      "id": "siente-el-suelo",
+      "title": "Siente el suelo",
+      "subtitle": "Vuelve al presente",
+      "image": "assets/img/exercise-detail-feet.jpg"
+    },
+    {
+      "id": "algo-que-puedas-sostener",
+      "title": "Algo que puedas sostener",
+      "subtitle": "Vuelve al presente",
+      "image": "assets/img/exercise-detail-feet.jpg"
+    },
+    {
+      "id": "de-la-cabeza-a-los-pies",
+      "title": "De la cabeza a los pies",
+      "subtitle": "Vuelve al presente",
+      "image": "assets/img/exercise-detail-feet.jpg"
+    }
+  ]
+}

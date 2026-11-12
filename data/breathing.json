@@ -1,0 +1,10 @@
+{
+  "durations": [1, 3, 5],
+  "defaultDurationMinutes": 3,
+  "phases": [
+    { "key": "inhala", "label": "Inhala", "seconds": 4 },
+    { "key": "sostén", "label": "Sostén", "seconds": 4 },
+    { "key": "exhala", "label": "Exhala", "seconds": 4 },
+    { "key": "sostén", "label": "Sostén", "seconds": 4 }
+  ]
+}

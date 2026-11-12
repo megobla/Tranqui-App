@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#262626" />
+  <title>Tranqui — Tu espacio de calma</title>
+  <meta name="description" content="Respiración guiada, ejercicios de anclaje y consejos según tu estado de ánimo, cuando lo necesites." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Homemade+Apple&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/components.css" />
+</head>
+<body>
+
+  <!-- ============ Onboarding — Bienvenida ============ -->
+  <section class="app-view splash" data-route="welcome" aria-hidden="false">
+    <div class="splash__hero">
+      <div class="splash__copy">
+        <div class="splash__text-block">
+          <h1 class="splash__headline">La calma de tu clase en cualquier momento del día</h1>
+          <p class="splash__tagline">para respirar mejor</p>
+        </div>
+        <div class="splash__photo">
+          <img src="assets/img/splash-hero.jpg" alt="Instructora de yoga en una sesión de estiramiento" width="241" height="229" />
+        </div>
+        <button type="button" class="btn splash__cta" data-welcome-continue>Comenzar</button>
+      </div>
+    </div>
+    <div class="splash__footer">
+      <p class="splash__wordmark">Tranqui</p>
+    </div>
+  </section>
+
+  <!-- ============ Onboarding — Nombre ============ -->
+  <section class="app-view screen" data-route="name" aria-hidden="true">
+    <header class="screen__header screen__header--compact">
+      <a class="back-button" href="#/welcome" aria-label="Volver">
+        <img src="assets/icons/icon-arrow-back.svg" alt="" />
+      </a>
+      <h1 class="visually-hidden">¿Cómo te llamas?</h1>
+    </header>
+
+    <div class="content-sheet content-sheet--centered">
+      <form class="onboarding-form" data-name-form>
+        <div class="onboarding-form__field">
+          <input
+            type="text"
+            class="onboarding-form__input"
+            placeholder="Escribe tu nombre"
+            autocomplete="given-name"
+            maxlength="40"
+            data-name-input
+          />
+          <p class="onboarding-form__hint">Solo lo usaremos para saludarte.</p>
+        </div>
+        <div class="onboarding-form__actions">
+          <button type="submit" class="btn onboarding-form__submit">Continuar</button>
+          <button type="button" class="onboarding-form__skip" data-name-skip>Omitir por ahora</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ Inicio (Home) ============ -->
+  <section class="app-view screen" data-route="inicio" aria-hidden="true">
+    <header class="screen__header">
+      <h1 class="screen__title" data-home-greeting>Bienvenida</h1>
+
+      <div class="weekly-tip">
+        <p class="weekly-tip__label">Consejo de la semana:</p>
+        <div class="weekly-tip__player">
+          <button type="button" class="play-button" data-weekly-tip-play aria-label="Reproducir el consejo de la semana" aria-pressed="false">
+            <img src="assets/icons/icon-play.svg" alt="" data-icon-play />
+          </button>
+          <span class="weekly-tip__waveform" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <div class="content-sheet">
+      <div class="home-grid">
+        <div class="featured-card">
+          <img class="featured-card__bg" src="assets/img/featured-breathing.jpg" alt="" />
+          <div class="featured-card__scrim"></div>
+          <div class="featured-card__body">
+            <h2 class="featured-card__title">Pausa 3 minutos</h2>
+            <p class="featured-card__description">Respira conmigo y suelta la tensión.</p>
+          </div>
+          <a class="btn featured-card__cta" href="#/breathing?duration=3">Comenzar</a>
+        </div>
+
+        <div class="home-grid__quick-links">
+          <h2 class="tips-filter__title">Accesos rápidos</h2>
+          <div class="tip-cards">
+            <a class="tip-card" href="#/exercises">
+              <span class="icon-badge"><img src="assets/icons/icon-self-improvement.svg" alt="" /></span>
+              <span class="tip-card__label">Ejercicios de anclaje</span>
+            </a>
+            <a class="tip-card" href="#/tips">
+              <span class="icon-badge"><img src="assets/icons/icon-lightbulb.svg" alt="" /></span>
+              <span class="tip-card__label">Tips de relajación</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Respirar (Breathing) ============ -->
+  <section class="app-view screen" data-route="breathing" aria-hidden="true">
+    <header class="screen__header screen__header--compact-mobile">
+      <a class="back-button" href="#/inicio" aria-label="Volver">
+        <img src="assets/icons/icon-arrow-back.svg" alt="" />
+      </a>
+      <h1 class="visually-hidden">Respira conmigo</h1>
+    </header>
+
+    <div class="content-sheet content-sheet--centered breathing-content">
+      <div class="orb">
+        <img class="orb__halo" src="assets/icons/breathing-orb-halo-outer.svg" alt="" />
+        <img class="orb__halo orb__halo--inner" src="assets/icons/breathing-orb-halo-inner.svg" alt="" />
+        <div class="orb__phase">
+          <p class="orb__phase-label" data-breathing-phase-label>Inhala</p>
+          <p class="orb__phase-duration" data-breathing-phase-duration>4 segundos</p>
+        </div>
+      </div>
+
+      <div class="breathing-controls">
+        <div class="chip-row" role="radiogroup" aria-label="Duración" data-breathing-duration-chips>
+          <button type="button" class="chip" role="radio" aria-checked="false" data-duration="1">1 min</button>
+          <button type="button" class="chip" role="radio" aria-checked="true" data-duration="3">3 min</button>
+          <button type="button" class="chip" role="radio" aria-checked="false" data-duration="5">5 min</button>
+        </div>
+        <button type="button" class="play-button play-button--dark" data-breathing-play aria-label="Comenzar sesión de respiración" aria-pressed="false">
+          <img src="assets/icons/icon-play.svg" alt="" data-icon-play />
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Ejercicios de anclaje (Exercises) ============ -->
+  <section class="app-view screen" data-route="exercises" aria-hidden="true">
+    <header class="screen__header">
+      <a class="back-button" href="#/inicio" aria-label="Volver">
+        <img src="assets/icons/icon-arrow-back.svg" alt="" />
+      </a>
+      <h1 class="screen__title">Ejercicios de anclaje</h1>
+    </header>
+
+    <div class="content-sheet">
+      <div class="split-layout">
+        <h2 class="tips-filter__title split-layout__heading">Recomendación de Mariana</h2>
+        <div class="split-layout__primary">
+          <div class="featured-card">
+            <img class="featured-card__bg" src="assets/img/featured-exercise.jpg" alt="" />
+            <div class="featured-card__scrim"></div>
+            <div class="featured-card__body">
+              <h3 class="featured-card__title">Pies en la tierra</h3>
+              <p class="featured-card__title--script">Vuelve al presente</p>
+            </div>
+            <a class="btn featured-card__cta" href="#/exercise/pies-en-la-tierra">Comenzar</a>
+          </div>
+        </div>
+
+        <div class="split-layout__secondary">
+          <h2 class="tips-filter__title">Ejercicios</h2>
+          <div class="exercise-list" data-exercise-list>
+            <!-- Rendered by js/mood.js's sibling exercises renderer from data/exercises.json -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Detalle del ejercicio ============ -->
+  <section class="app-view screen" data-route="exercise" aria-hidden="true">
+    <header class="screen__header screen__header--compact">
+      <a class="back-button" href="#/exercises" aria-label="Volver">
+        <img src="assets/icons/icon-arrow-back.svg" alt="" />
+      </a>
+    </header>
+
+    <div class="content-sheet">
+      <div class="split-layout">
+        <div class="exercise-detail__heading split-layout__heading">
+          <h1 class="exercise-detail__title" data-exercise-title>Pies en la tierra</h1>
+          <p class="exercise-detail__subtitle" data-exercise-subtitle>Vuelve al presente</p>
+        </div>
+        <div class="split-layout__primary">
+          <div class="exercise-detail__image">
+            <img src="assets/img/exercise-detail-feet.jpg" alt="" data-exercise-image />
+          </div>
+          <div class="chip-row" role="radiogroup" aria-label="Duración" data-exercise-duration-chips>
+            <button type="button" class="chip" role="radio" aria-checked="false" data-duration="1">1 min</button>
+            <button type="button" class="chip" role="radio" aria-checked="true" data-duration="3">3 min</button>
+            <button type="button" class="chip" role="radio" aria-checked="false" data-duration="5">5 min</button>
+          </div>
+        </div>
+
+        <div class="split-layout__secondary">
+          <div class="exercise-detail__heading">
+            <h2 class="tips-filter__title">¿Cómo se hace?</h2>
+            <p class="exercise-detail__intro">Usa tus sentidos para calmar la mente.</p>
+          </div>
+          <ol class="exercise-steps" data-exercise-steps>
+            <!-- Rendered by js/mood.js's exercise-detail renderer from data/exercises.json -->
+          </ol>
+          <a class="btn" href="#/breathing" data-exercise-start>Comenzar</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ Consejos (Tips) ============ -->
+  <section class="app-view screen" data-route="tips" aria-hidden="true">
+    <header class="screen__header">
+      <a class="back-button" href="#/inicio" aria-label="Volver">
+        <img src="assets/icons/icon-arrow-back.svg" alt="" />
+      </a>
+      <h1 class="screen__title">Tips de relajación</h1>
+
+      <!-- Tablet/desktop move the mood filter into the header; see .tips-filter--header in components.css -->
+      <div class="tips-filter tips-filter--header">
+        <p class="screen__subtitle">¿Cómo te sientes hoy?</p>
+        <div class="chip-row" role="radiogroup" aria-label="Estado de ánimo" data-tips-mood-chips>
+          <button type="button" class="chip chip--on-dark" role="radio" aria-checked="false" data-mood="estresada">Estresada</button>
+          <button type="button" class="chip chip--on-dark" role="radio" aria-checked="false" data-mood="ansiosa">Ansiosa</button>
+          <button type="button" class="chip chip--on-dark" role="radio" aria-checked="false" data-mood="agobiada">Agobiada</button>
+          <button type="button" class="chip chip--on-dark" role="radio" aria-checked="false" data-mood="inquieta">Inquieta</button>
+          <button type="button" class="chip chip--on-dark" role="radio" aria-checked="false" data-mood="no-puedo-dormir">No puedo dormir</button>
+        </div>
+      </div>
+    </header>
+
+    <div class="content-sheet">
+      <!-- Mobile only: the mood filter lives in the content area, with its own separate CTA below -->
+      <div class="tips-filter tips-filter--inline">
+        <h2 class="tips-filter__title">¿Cómo te sientes hoy?</h2>
+        <div class="chip-row" role="radiogroup" aria-label="Estado de ánimo" data-tips-mood-chips>
+          <button type="button" class="chip" role="radio" aria-checked="false" data-mood="estresada">Estresada</button>
+          <button type="button" class="chip" role="radio" aria-checked="false" data-mood="ansiosa">Ansiosa</button>
+          <button type="button" class="chip" role="radio" aria-checked="false" data-mood="agobiada">Agobiada</button>
+          <button type="button" class="chip" role="radio" aria-checked="false" data-mood="inquieta">Inquieta</button>
+          <button type="button" class="chip" role="radio" aria-checked="false" data-mood="no-puedo-dormir">No puedo dormir</button>
+        </div>
+      </div>
+      <a class="btn tips__cta tips__cta--inline" href="#/breathing" data-tips-cta hidden>Probar con la respiración guiada</a>
+
+      <p class="tips-empty-state" data-tips-empty>Selecciona una opción</p>
+      <article class="tip-detail" data-tips-result hidden>
+        <div class="tip-detail__image">
+          <img src="assets/img/tip-shoulders.jpg" alt="" data-tip-image />
+        </div>
+        <div class="tip-detail__body">
+          <h3 class="tip-detail__title" data-tip-title>Suelta los hombros</h3>
+          <p class="tip-detail__text" data-tip-text>Inhala por la nariz y deja caer los hombros al exhalar.</p>
+          <!-- Tablet/desktop only: the CTA groups with the tip text instead of standing alone -->
+          <a class="btn tips__cta tips__cta--grouped" href="#/breathing" data-tips-cta hidden>Probar con la respiración guiada</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

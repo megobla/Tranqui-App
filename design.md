@@ -186,10 +186,10 @@ The designer named specific usages explicitly instead of leaving every screen to
 | layout-margin | 20px | 32px | 64px | Outer page margin (unchanged from before, just renamed `--layout-{bp}-margin`) |
 | layout-gutter | — | 16px | 32px | Column gutter (tablet/desktop only) |
 | header-padding-top | 40px | 40px | 40px | Same at every breakpoint |
-| header-padding-bottom | 40px | 64px | 64px | **Compact exception** below |
-| **header-padding-bottom-compact** | **16px** | 64px (not compact) | 16px | Back-button-only headers. Breathing is compact on mobile only; Exercise detail is compact at every breakpoint. This exact split was a real gap in the code (both headers were using the full 40/64px padding) — fixed this pass |
+| header-padding-bottom (corrected 2026-11-15) | 40px | **24px** | **24px** | Explicit instruction: top:40/bottom:24 on every breakpoint except mobile (was 64px tablet/desktop before — not re-verified against Figma this pass, taken as a direct product request) |
+| **header-padding-bottom-compact** | **16px** | 16px | 16px | Back-button-only headers (Breathing on mobile only; Exercise detail at every breakpoint) — unaffected by the header-padding-bottom change above, still the tighter compact value |
 | hero-card-padding (Featured card) | **24px** | 40px | 40px | The mobile value was wrong in code (was hard-coded to 40px like tablet/desktop) — fixed this pass |
-| header-gap | 32px | 40px | 48px | Gap between header children |
+| header-gap (corrected 2026-11-15) | **16px** | **16px** | **16px** | Explicit instruction: 16px at every breakpoint including mobile (was 32/40/48px before) |
 | section-gap | 56px | 80px | 160px | = `spacing-section-compact` / `spacing-section-mobile` / `spacing-section-desktop` above |
 | group-gap | 48px (mobile), 40px (desktop) | — | 40px | Vertical gap between a sibling group and the next (e.g. "Recomendación de Mariana" title and the row below it on Exercises/Exercise-detail desktop) |
 | sheet-padding-y | 40px | 64px | 64px | = `spacing-xl` / `spacing-3xl` |
@@ -257,7 +257,16 @@ Not backed by Figma variables — reflects the actual auto-layout structure obse
 |------------|-----------|
 | sm | Stack all content vertically; full-width cards |
 | md | Mostly stacked; the mood-filter UI relocates into the dark header instead of the content area (see Tips screen) |
-| lg, xl, 2xl | Two-column splits for detail/list screens (Exercises, Tips, Exercise detail); Home goes featured-card + quick-links side by side. On Exercises and Exercise detail specifically, the section/exercise title ("Recomendación de Mariana", "Pies en la tierra") promotes to a full-width heading spanning both columns, with the two columns below it — confirmed 2026-11-11, implemented via CSS Grid (`grid-template-areas: "heading heading" "primary secondary"`) rather than duplicating markup |
+| lg, xl, 2xl | Two-column splits for detail/list screens (Exercises, Tips, Exercise detail); Home goes featured-card + quick-links side by side. On Exercises and Exercise detail specifically, the section/exercise title ("Recomendaciones de Mariana", "Pies en la tierra") promotes to a full-width heading spanning both columns, with the two columns below it — confirmed 2026-11-11, implemented via CSS Grid (`grid-template-areas: "heading heading" "primary secondary"`) rather than duplicating markup |
+
+### Exercises screen update (2026-11-15)
+
+Re-verified against the updated desktop frame (`101:172`) and replicated to mobile/tablet per explicit instruction:
+
+- Title copy: "Recomendación de Mariana" → **"Recomendaciones de Mariana"** (plural), at every breakpoint.
+- The 3-item exercise list is now a **2-column grid at every breakpoint**, icon stacked above label inside each card (was a single-column list with icon+label side by side). The 3rd card spans both columns (`.exercise-row:last-child { grid-column: span 2; }`) — relies on there always being exactly 3 non-featured exercises in `data/exercises.json`.
+- On desktop only, the Exercises split-layout's second column is now fluid (`.split-layout--exercises` overrides to `640px 1fr` with an explicit 80px gap) instead of the fixed 640/524 + `justify-content: space-between` pattern Exercise detail and Tips still use — Exercises' own frame moved to a flexible-width second column, those two didn't.
+- Featured-card scrim darkened from `rgba(0,0,0,0.2)` to `rgba(0,0,0,0.39)` (confirmed on both the Home and Exercises featured cards) — shared `.featured-card__scrim` class, so this applies everywhere that component is used.
 
 ### Onboarding flow (corrected 2026-11-13)
 

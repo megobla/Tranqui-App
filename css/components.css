@@ -103,7 +103,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-sm);
   color: var(--color-neutral-0);
   padding: var(--spacing-xl) var(--layout-margin-mobile);
 }
@@ -196,8 +196,8 @@
 
 @media (min-width: 640px) {
   .screen__header {
-    gap: var(--spacing-xl);
-    padding: var(--spacing-xl) var(--layout-margin-tablet) var(--spacing-3xl);
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xl) var(--layout-margin-tablet) var(--spacing-md);
   }
 
   .screen__header--compact {
@@ -212,8 +212,8 @@
 
 @media (min-width: 1024px) {
   .screen__header {
-    gap: var(--spacing-2xl);
-    padding: var(--spacing-xl) var(--layout-margin-desktop) var(--spacing-3xl);
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xl) var(--layout-margin-desktop) var(--spacing-md);
   }
 
   .screen__header--compact {
@@ -392,7 +392,7 @@
 .featured-card__scrim {
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.39);
 }
 
 .featured-card__body {
@@ -630,21 +630,27 @@
 
 /* ============ Exercises (grounding techniques) ============ */
 
+/* 2-column grid at every breakpoint; the last card (3rd of 3) spans both columns. */
 .exercise-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-xs);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
   width: 100%;
 }
 
 .exercise-row {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   gap: var(--spacing-sm);
-  width: 100%;
   padding: var(--spacing-md) var(--spacing-sm);
   border-radius: var(--radius-lg);
   background-color: var(--color-neutral-0);
+}
+
+.exercise-row:last-child {
+  grid-column: span 2;
 }
 
 .exercise-row__label {
@@ -654,8 +660,9 @@
 
 @media (min-width: 1024px) {
   /* A shared heading (.split-layout__heading) can span both columns on row 1, with the two
-     640px/524px columns below it on row 2, spaced by justify-content alone — matches Figma's
-     own technique of fixed-width columns with no explicit gap between them. */
+     columns below it on row 2 — Exercise detail/Tips keep two fixed-width columns spaced via
+     justify-content; Exercises (.split-layout--exercises) instead uses an explicit gap with a
+     fluid second column, matching its own Figma frame. */
   .split-layout {
     display: grid;
     grid-template-columns: 640px 524px;
@@ -663,6 +670,12 @@
     justify-content: space-between;
     row-gap: var(--spacing-group-gap-desktop);
     width: 100%;
+  }
+
+  .split-layout--exercises {
+    grid-template-columns: 640px 1fr;
+    column-gap: var(--spacing-section-mobile);
+    justify-content: flex-start;
   }
 
   .split-layout__heading {
